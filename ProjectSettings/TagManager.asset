@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Floor
+  - Coin
+  - Trap
+  - Cup
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Background
+  - Floor
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 883239661
+    locked: 0
+  - name: Floor
+    uniqueID: 3702922831
+    locked: 0
+  - name: Collectibles
+    uniqueID: 1824759315
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1473120169
+    locked: 0
+  - name: Player
+    uniqueID: 4144719273
+    locked: 0
+  - name: Victory
+    uniqueID: 1469615239
+    locked: 0
