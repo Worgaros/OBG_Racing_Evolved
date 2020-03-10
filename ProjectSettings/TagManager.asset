@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - Trap
   - Cup
+  - Oil
   layers:
   - Default
   - TransparentFX

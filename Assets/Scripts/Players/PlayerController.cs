@@ -10,11 +10,18 @@ public class PlayerController : MonoBehaviour
     
     Vector2 direction;
     [SerializeField] float speed;
+    [SerializeField] float lowSpeed;
+
     const float inverse = -1.0f;
     bool isMoving = false;
     bool isLookingLeft = true;
     
     bool isOnFloor = true;
+
+    bool isSkid = false;
+    bool Lock = false;
+    [SerializeField] float speedRot;
+    [SerializeField] float Cooldown;
 
     [SerializeField] GameObject controlsPanel;
     
@@ -34,6 +41,10 @@ public class PlayerController : MonoBehaviour
         {
             engineSound.Stop();
         }
+        if (isSkid)
+        {
+            transform.Rotate(new Vector3(0, 0, speedRot * Time.deltaTime));
+        }
     }
 
     void PlayerMovements()
@@ -45,14 +56,14 @@ public class PlayerController : MonoBehaviour
             controlsPanel.SetActive(false);
             engineSound.Play();
         }
-        else if (Input.GetButtonDown("ChangeDirection") && isMoving && isLookingLeft && Time.timeScale > 0)
+        else if (Input.GetButtonDown("ChangeDirection") && isMoving && isLookingLeft && Time.timeScale > 0 && !Lock)
         {
             direction = new Vector2(body.velocity.x * inverse, body.velocity.y);
             transform.Rotate (Vector3.forward * -90);
             isLookingLeft = false;
             tireSound.Play();
         }
-        else if (Input.GetButtonDown("ChangeDirection") && isMoving && !isLookingLeft && Time.timeScale > 0)
+        else if (Input.GetButtonDown("ChangeDirection") && isMoving && !isLookingLeft && Time.timeScale > 0 && !Lock)
         {
             direction = new Vector2(body.velocity.x * inverse, body.velocity.y);
             transform.Rotate (Vector3.forward * 90);
@@ -65,5 +76,40 @@ public class PlayerController : MonoBehaviour
         }
 
         body.velocity = direction;
+    }
+    public void IsSkid()
+    {
+        isSkid = true;
+        Lock = true;
+        if (!isLookingLeft)
+        {
+            direction = new Vector2(lowSpeed, lowSpeed);
+        }
+        if (isLookingLeft)
+        {
+            direction = new Vector2(lowSpeed * inverse, lowSpeed);
+        }
+        tireSound.Play();
+        StartCoroutine(cooldown());
+    }
+    IEnumerator cooldown()
+    {
+        Debug.Log("cooldown");
+        yield return new WaitForSeconds(Cooldown);
+        Debug.Log("stopSkid");
+        isSkid = false;
+        if (!isLookingLeft)
+        {
+            Debug.Log(isLookingLeft);
+            direction = new Vector2(speed, speed);
+            transform.rotation = Quaternion.Euler(0, 0, -45);
+        }
+        if (isLookingLeft)
+        {
+            Debug.Log(isLookingLeft);
+            direction = new Vector2(speed * inverse, speed);
+            transform.rotation = Quaternion.Euler(0, 0, 45);
+        }
+        Lock = false;
     }
 }

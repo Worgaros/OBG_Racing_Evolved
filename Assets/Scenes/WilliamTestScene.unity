@@ -403,7 +403,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4278ddc03df512c469fb12957e4a4118, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -5492041713968670308, guid: 4278ddc03df512c469fb12957e4a4118,
     type: 2}
   m_fontSharedMaterials: []
@@ -861,7 +861,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'SCORE:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4278ddc03df512c469fb12957e4a4118, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: -5492041713968670308, guid: 4278ddc03df512c469fb12957e4a4118,
     type: 2}
   m_fontSharedMaterials: []
@@ -1129,9 +1129,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Victory !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4278ddc03df512c469fb12957e4a4118, type: 2}
-  m_sharedMaterial: {fileID: -5492041713968670308, guid: 4278ddc03df512c469fb12957e4a4118,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2218,9 +2217,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Space Bar or A controller Button to start or turn your car
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4278ddc03df512c469fb12957e4a4118, type: 2}
-  m_sharedMaterial: {fileID: -5492041713968670308, guid: 4278ddc03df512c469fb12957e4a4118,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2291,7 +2289,7 @@ MonoBehaviour:
     spaceCount: 12
     wordCount: 13
     linkCount: 0
-    lineCount: 4
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2677,6 +2675,11 @@ PrefabInstance:
       propertyPath: engineSound
       value: 
       objectReference: {fileID: 938378708}
+    - target: {fileID: 147551070186380516, guid: 31dfe8afe43dde0458a3a3af67102994,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 147551070186380517, guid: 31dfe8afe43dde0458a3a3af67102994,
         type: 3}
       propertyPath: m_Name
