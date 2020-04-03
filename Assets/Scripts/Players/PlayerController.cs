@@ -56,9 +56,9 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovements()
     {
-        //Touch touch = Input.GetTouch(0);
         
-        if (Input.GetMouseButtonDown(0)/*touch.phase == TouchPhase.Ended*/ /*|| Input.GetKeyDown("space") */&& !isMoving)
+        
+        if (Input.GetMouseButtonDown(0) && !isMoving)
         {
             direction = new Vector2( speed * inverse, speed);
             isMoving = true;
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 1;
 
         }
-        else if (Input.GetMouseButtonDown(0)/*touch.phase == TouchPhase.Ended*/ /*|| Input.GetKeyDown("space")*/ && isMoving && isLookingLeft && Time.timeScale > 0 && !Lock)
+        else if (Input.GetMouseButtonDown(0) && isMoving && isLookingLeft && Time.timeScale > 0 && !Lock)
         {
             direction = new Vector2(body.velocity.x * inverse, body.velocity.y);
             transform.Rotate (Vector3.forward * -90);
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
             tireSound.Play();
             vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.3f;
         }
-        else if (Input.GetMouseButtonDown(0)/*touch.phase == TouchPhase.Ended*/ /*|| Input.GetKeyDown("space")*/ && isMoving && !isLookingLeft && Time.timeScale > 0 && !Lock)
+        else if (Input.GetMouseButtonDown(0) && isMoving && !isLookingLeft && Time.timeScale > 0 && !Lock)
         {
             direction = new Vector2(body.velocity.x * inverse, body.velocity.y);
             transform.Rotate (Vector3.forward * 90);
