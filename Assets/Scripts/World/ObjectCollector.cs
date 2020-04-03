@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObjectCollector : MonoBehaviour
 {
@@ -35,8 +36,8 @@ public class ObjectCollector : MonoBehaviour
         {
             Destroy(gameObject);
             Time.timeScale = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             victoryPanel.SetActive(true);
-//            collectedCoinsUI.text = coinsNumber.ToString();
         }
     }
 }

@@ -9,7 +9,7 @@ public class CheckOutOfMap : MonoBehaviour
     {
         if (other.CompareTag("Floor"))
         {
-            SceneManager.LoadScene("WilliamTestScene");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
