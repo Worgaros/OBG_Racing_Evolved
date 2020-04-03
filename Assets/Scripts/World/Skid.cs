@@ -19,9 +19,13 @@ public class Skid : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player") // bool oil futur
         {
             collision.GetComponent<PlayerController>().IsSkid();
+        }
+        if (collision.gameObject.tag == "Player" & barrel)
+        {
+            collision.GetComponent<PlayerHealth>().Hiting();
         }
     }
 }
