@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     
     bool isOnFloor = true;
 
+    bool canTurn = true;
+
     bool isSkid = false;
     bool Lock = false;
     [SerializeField] float speedRot;
@@ -49,31 +51,30 @@ public class PlayerController : MonoBehaviour
 
     void PlayerMovements()
     {
-        if (Input.GetButtonDown("ChangeDirection") && !isMoving)
+        Touch touch = Input.GetTouch(0);
+        
+        if (touch.phase == TouchPhase.Ended && !isMoving)
         {
             direction = new Vector2( speed * inverse, speed);
             isMoving = true;
             controlsPanel.SetActive(false);
             engineSound.Play();
         }
-        else if (Input.GetButtonDown("ChangeDirection") && isMoving && isLookingLeft && Time.timeScale > 0 && !Lock)
+        else if (touch.phase == TouchPhase.Ended && isMoving && isLookingLeft && Time.timeScale > 0 && !Lock)
         {
             direction = new Vector2(body.velocity.x * inverse, body.velocity.y);
             transform.Rotate (Vector3.forward * -90);
             isLookingLeft = false;
             tireSound.Play();
         }
-        else if (Input.GetButtonDown("ChangeDirection") && isMoving && !isLookingLeft && Time.timeScale > 0 && !Lock)
+        else if (touch.phase == TouchPhase.Ended && isMoving && !isLookingLeft && Time.timeScale > 0 && !Lock)
         {
             direction = new Vector2(body.velocity.x * inverse, body.velocity.y);
             transform.Rotate (Vector3.forward * 90);
             isLookingLeft = true;
             tireSound.Play();
         }
-        else if (Input.GetButtonDown("ChangeDirection") && Time.timeScale == 0)
-        {
-            Application.Quit();
-        }
+        
 
         body.velocity = direction;
     }
