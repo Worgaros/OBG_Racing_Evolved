@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D body;
     SpriteRenderer spriteRenderer;
-    
+
     Vector2 direction;
     [SerializeField] float speed;
     [SerializeField] float lowSpeed;
@@ -29,6 +30,10 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] AudioSource tireSound;
     [SerializeField] AudioSource engineSound;
+
+    [SerializeField] CinemachineVirtualCamera vcam;
+    
+    
 
     void Start()
     {
@@ -59,6 +64,7 @@ public class PlayerController : MonoBehaviour
             isMoving = true;
             controlsPanel.SetActive(false);
             engineSound.Play();
+            
         }
         else if (touch.phase == TouchPhase.Ended && isMoving && isLookingLeft && Time.timeScale > 0 && !Lock)
         {
@@ -66,6 +72,7 @@ public class PlayerController : MonoBehaviour
             transform.Rotate (Vector3.forward * -90);
             isLookingLeft = false;
             tireSound.Play();
+            vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.3f;
         }
         else if (touch.phase == TouchPhase.Ended && isMoving && !isLookingLeft && Time.timeScale > 0 && !Lock)
         {
@@ -73,6 +80,7 @@ public class PlayerController : MonoBehaviour
             transform.Rotate (Vector3.forward * 90);
             isLookingLeft = true;
             tireSound.Play();
+            vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.7f;
         }
         
 
