@@ -15,6 +15,8 @@ public class ObjectCollector : MonoBehaviour
     [SerializeField] GameObject victoryPanel;
     
     [SerializeField] AudioSource coinSound;
+
+    int maxIndexLevels = 3;
     
 //    [SerializeField] TextMeshProUGUI collectedCoinsUI;
 
@@ -36,7 +38,10 @@ public class ObjectCollector : MonoBehaviour
         {
             Destroy(gameObject);
             Time.timeScale = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (SceneManager.GetActiveScene().buildIndex != maxIndexLevels)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
             victoryPanel.SetActive(true);
         }
     }
