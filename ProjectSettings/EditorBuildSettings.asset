@@ -8,7 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/WilliamTestScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 46038a6525962924db7ed932ec25f78a
+  - enabled: 0
+    path: Assets/Scenes/Level2.unity
+    guid: dfb97e51a1a0ed54ab416d3d099e0b9e
+  - enabled: 1
+    path: Assets/Scenes/Scene Test Gael.unity
+    guid: e70d0a299609a6943b420091cc07beb1
   m_configObjects: {}
