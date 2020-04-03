@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if (Health == 0)
         {
-            SceneManager.LoadScene("WilliamTestScene");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
     public void Hiting()

@@ -14,6 +14,7 @@
           <e p="World" t="Include">
             <e p="AudioManager.cs" t="Include" />
             <e p="CheckOutOfMap.cs" t="Include" />
+            <e p="DeathZone.cs" t="Include" />
             <e p="ObjectCollector.cs" t="Include" />
             <e p="Skid.cs" t="Include" />
             <e p="SO_Clip.cs" t="Include" />
