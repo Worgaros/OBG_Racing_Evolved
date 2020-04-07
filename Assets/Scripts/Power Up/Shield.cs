@@ -15,6 +15,8 @@ public class Shield : MonoBehaviour
     {
         Broke = false;
         coinsave = FindObjectOfType<CoinsSaver>();
+        shield = false;
+        ShieldOn();
     }
 
     void Update()
@@ -35,6 +37,10 @@ public class Shield : MonoBehaviour
             shield = false;
             GetComponentInParent<PlayerController>().shieldUp();
         }
+       else if (!shield && coinsave.ReturnNbrOfCoins() < shieldPrice)
+        {
+            gameObject.SetActive(false);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -44,5 +50,9 @@ public class Shield : MonoBehaviour
             collision.GetComponent<Skid>().ShieldBroke();
             ShieldOn();
         }
+    }
+    public void test()
+    {
+        
     }
 }
