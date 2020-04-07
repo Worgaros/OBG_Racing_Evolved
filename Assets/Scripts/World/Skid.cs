@@ -29,4 +29,8 @@ public class Skid : MonoBehaviour
             collision.GetComponent<PlayerHealth>().Hiting();
         }
     }
+    public void ShieldBroke()
+    {
+        Destroy(gameObject);
+    }
 }

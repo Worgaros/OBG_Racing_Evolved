@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource engineSound;
 
     [SerializeField] CinemachineVirtualCamera vcam;
-    
-    
+
+    [SerializeField] bool shield;
 
     void Start()
     {
@@ -89,18 +89,21 @@ public class PlayerController : MonoBehaviour
     }
     public void IsSkid()
     {
-        isSkid = true;
-        Lock = true;
-        if (!isLookingLeft)
+        if (!shield)
         {
-            direction = new Vector2(lowSpeed, lowSpeed);
+            isSkid = true;
+            Lock = true;
+            if (!isLookingLeft)
+            {
+                direction = new Vector2(lowSpeed, lowSpeed);
+            }
+            if (isLookingLeft)
+            {
+                direction = new Vector2(lowSpeed * inverse, lowSpeed);
+            }
+            tireSound.Play();
+            StartCoroutine(cooldown());
         }
-        if (isLookingLeft)
-        {
-            direction = new Vector2(lowSpeed * inverse, lowSpeed);
-        }
-        tireSound.Play();
-        StartCoroutine(cooldown());
     }
     IEnumerator cooldown()
     {
@@ -121,5 +124,23 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 45);
         }
         Lock = false;
+    }
+    public void shieldUp()
+    {
+        if (!shield)
+        {
+            shield = true;
+            Debug.Log(shield);
+        }
+        if (shield)
+        {
+            shield = false;
+            Debug.Log(shield);
+        }
+        Debug.Log(shield);
+    }
+    public void nitro()
+    {
+
     }
 }

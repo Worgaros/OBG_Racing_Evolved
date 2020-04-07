@@ -5,11 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] int Health;  
+    [SerializeField] int Health;
+
+    [SerializeField] bool armoredUp = false;
+    int armor = 2;
 
     void Start()
     {
-       
+       if (armoredUp)
+        {
+            Health += armor;
+        }
     }
 
     // Update is called once per frame
@@ -27,5 +33,9 @@ public class PlayerHealth : MonoBehaviour
     public void Hiting()
     {
         Health--;
+    }
+    public void armored()
+    {
+        armoredUp = true;
     }
 }
