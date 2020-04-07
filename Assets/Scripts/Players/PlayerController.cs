@@ -115,19 +115,15 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator cooldown()
     {
-        Debug.Log("cooldown");
         yield return new WaitForSeconds(Cooldown);
-        Debug.Log("stopSkid");
         isSkid = false;
         if (!isLookingLeft)
         {
-            Debug.Log(isLookingLeft);
             direction = new Vector2(speed, speed);
             transform.rotation = Quaternion.Euler(0, 0, -45);
         }
         if (isLookingLeft)
         {
-            Debug.Log(isLookingLeft);
             direction = new Vector2(speed * inverse, speed);
             transform.rotation = Quaternion.Euler(0, 0, 45);
         }

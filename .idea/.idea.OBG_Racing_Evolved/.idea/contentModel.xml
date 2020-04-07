@@ -12,7 +12,6 @@
             <e p="PlayerHealth.cs" t="Include" />
           </e>
           <e p="Power Up" t="Include">
-            <e p="LockUnlockNitro.cs" t="Include" />
             <e p="Shield.cs" t="Include" />
           </e>
           <e p="World" t="Include">
@@ -20,6 +19,7 @@
             <e p="CheckOutOfMap.cs" t="Include" />
             <e p="CoinsSaver.cs" t="Include" />
             <e p="DeathZone.cs" t="Include" />
+            <e p="MenuManager.cs" t="Include" />
             <e p="ObjectCollector.cs" t="Include" />
             <e p="Skid.cs" t="Include" />
             <e p="SO_Clip.cs" t="Include" />

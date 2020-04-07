@@ -37,7 +37,7 @@ public class Shield : MonoBehaviour
             shield = false;
             GetComponentInParent<PlayerController>().shieldUp();
         }
-       else if (!shield && coinsave.ReturnNbrOfCoins() < shieldPrice)
+       else if (!shield && coinsave.ReturnNbrOfCoins() < shieldPrice) 
         {
             gameObject.SetActive(false);
         }
