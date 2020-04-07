@@ -6,10 +6,15 @@ public class Shield : MonoBehaviour
 {
     [SerializeField] bool shield;
     [SerializeField] bool Broke;
+    
+    CoinsSaver coinsave;
+
+    int shieldPrice = 5;
 
     void Start()
     {
         Broke = false;
+        coinsave = FindObjectOfType<CoinsSaver>();
     }
 
     void Update()
@@ -18,8 +23,9 @@ public class Shield : MonoBehaviour
     }
     public void ShieldOn()
     {
-        if (!shield)
+        if (!shield && coinsave.ReturnNbrOfCoins() >= shieldPrice)
         {
+            coinsave.RemoveCoins(shieldPrice);
             shield = true;
             GetComponentInParent<PlayerController>().shieldUp();
         }

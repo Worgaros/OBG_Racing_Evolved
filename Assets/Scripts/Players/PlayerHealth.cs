@@ -9,10 +9,14 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] bool armoredUp = false;
     int armor = 2;
+    
+    CoinsSaver coinsave;
+
+    const int armorPrice = 15;
 
     void Start()
     {
-       
+        coinsave = FindObjectOfType<CoinsSaver>();
     }
     
     void Update()
@@ -32,14 +36,11 @@ public class PlayerHealth : MonoBehaviour
     }
     public void armored()
     {
-        if (!armoredUp)
+        if (!armoredUp && coinsave.ReturnNbrOfCoins() >= armorPrice)
         {
+            coinsave.RemoveCoins(armorPrice);
             Health += armor;
             armoredUp = true;
         }
-    }
-    void boost()
-    {
-        
     }
 }

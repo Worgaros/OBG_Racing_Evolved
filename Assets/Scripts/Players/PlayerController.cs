@@ -38,10 +38,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool shield;
     [SerializeField] bool StoreUp;
 
+    const int nitroPrice = 10;
+    CoinsSaver coinsave;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         StoreUp = true;
+        coinsave = FindObjectOfType<CoinsSaver>();
     }
     
     void Update()
@@ -142,8 +146,9 @@ public class PlayerController : MonoBehaviour
     }
     public void nitro()
     {
-        if (speed == normalSpeed)
+        if (speed == normalSpeed && coinsave.ReturnNbrOfCoins() >= nitroPrice)
         {
+            coinsave.RemoveCoins(nitroPrice);
             speed = nitroSpeed;
         }
     }
