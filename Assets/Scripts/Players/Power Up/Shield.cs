@@ -5,13 +5,11 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     [SerializeField] bool shield;
+    [SerializeField] bool Broke;
 
     void Start()
     {
-        if (!shield)
-        {
-            gameObject.SetActive(false);
-        }
+        Broke = false;
     }
 
     void Update()
@@ -22,21 +20,21 @@ public class Shield : MonoBehaviour
     {
         if (!shield)
         {
-            gameObject.SetActive(true);
             shield = true;
+            GetComponentInParent<PlayerController>().shieldUp();
         }
-        GetComponentInParent<PlayerController>().shieldUp();
-        Debug.Log("ShieldUp");
-        if (shield)
+        if (Broke)
         {
             gameObject.SetActive(false);
             shield = false;
+            GetComponentInParent<PlayerController>().shieldUp();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Oil")
         {
+            Broke = true;
             collision.GetComponent<Skid>().ShieldBroke();
             ShieldOn();
         }

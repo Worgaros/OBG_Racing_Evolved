@@ -12,10 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-       if (armoredUp)
-        {
-            Health += armor;
-        }
+       
     }
 
     // Update is called once per frame
@@ -36,6 +33,14 @@ public class PlayerHealth : MonoBehaviour
     }
     public void armored()
     {
-        armoredUp = true;
+        if (!armoredUp)
+        {
+            Health += armor;
+            armoredUp = true;
+        }
+    }
+    void boost()
+    {
+        
     }
 }

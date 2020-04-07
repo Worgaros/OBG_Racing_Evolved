@@ -9,6 +9,8 @@ TagManager:
   - Trap
   - Cup
   - Oil
+  - Normal
+  - Nitro
   layers:
   - Default
   - TransparentFX

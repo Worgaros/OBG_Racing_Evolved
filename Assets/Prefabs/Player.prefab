@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   lowSpeed: 1
+  normalSpeed: 2
+  nitroSpeed: 3
   speedRot: 1000
   Cooldown: 1
   controlsPanel: {fileID: 0}
@@ -129,6 +131,7 @@ MonoBehaviour:
   engineSound: {fileID: 0}
   vcam: {fileID: 0}
   shield: 0
+  StoreUp: 0
 --- !u!61 &4997628253861868734
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -257,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5213876720196420727
 Transform:
   m_ObjectHideFlags: 0

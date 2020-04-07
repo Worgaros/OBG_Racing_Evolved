@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     Vector2 direction;
     [SerializeField] float speed;
     [SerializeField] float lowSpeed;
+    [SerializeField] float normalSpeed;
+    [SerializeField] float nitroSpeed;
 
     const float inverse = -1.0f;
     bool isMoving = false;
@@ -34,10 +36,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera vcam;
 
     [SerializeField] bool shield;
+    [SerializeField] bool StoreUp;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        StoreUp = true;
     }
     
     void Update()
@@ -58,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         
         
-        if (Input.GetMouseButtonDown(0) && !isMoving)
+        if (Input.GetMouseButtonDown(0) && !isMoving && !StoreUp)
         {
             direction = new Vector2( speed * inverse, speed);
             isMoving = true;
@@ -130,17 +134,21 @@ public class PlayerController : MonoBehaviour
         if (!shield)
         {
             shield = true;
-            Debug.Log(shield);
         }
-        if (shield)
+        else if (shield)
         {
             shield = false;
-            Debug.Log(shield);
         }
-        Debug.Log(shield);
     }
     public void nitro()
     {
-
+        if (speed == normalSpeed)
+        {
+            speed = nitroSpeed;
+        }
+    }
+    public void storeDown()
+    {
+        StoreUp = false;
     }
 }
