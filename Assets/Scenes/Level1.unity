@@ -2000,7 +2000,7 @@ PrefabInstance:
     - target: {fileID: 8936065157741666633, guid: eb9135d4beda10342b2cb77bdbe9c0f1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8936065157741666633, guid: eb9135d4beda10342b2cb77bdbe9c0f1,
         type: 3}
@@ -2050,7 +2050,7 @@ PrefabInstance:
     - target: {fileID: 8936065157741666633, guid: eb9135d4beda10342b2cb77bdbe9c0f1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ShieldOn
+      value: test
       objectReference: {fileID: 0}
     - target: {fileID: 8936065157741666633, guid: eb9135d4beda10342b2cb77bdbe9c0f1,
         type: 3}
