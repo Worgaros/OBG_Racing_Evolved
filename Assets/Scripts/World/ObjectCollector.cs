@@ -9,27 +9,26 @@ public class ObjectCollector : MonoBehaviour
 {
     [SerializeField] GameObject player;
     Rigidbody2D playerBody;
-    
-//    int coinsNumber;
-    
+
     [SerializeField] GameObject victoryPanel;
-    
+
     [SerializeField] AudioSource coinSound;
 
-    int maxIndexLevels = 3;
+    CoinsSaver coinsave;
     
-//    [SerializeField] TextMeshProUGUI collectedCoinsUI;
+    int maxIndexLevels = 3;
 
     void Start()
     {
         playerBody = player.GetComponent<Rigidbody2D>();
+        coinsave = FindObjectOfType<CoinsSaver>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (gameObject.CompareTag("Coin"))
         {
-//            coinsNumber++;
+            coinsave.AddCoins();
             coinSound.Play();
             Destroy(gameObject);
         }
