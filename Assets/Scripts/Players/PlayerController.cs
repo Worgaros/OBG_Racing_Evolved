@@ -41,6 +41,11 @@ public class PlayerController : MonoBehaviour
 
     const int nitroPrice = 10;
     CoinsSaver coinsave;
+    
+    Vector2 startPosition;
+    Vector2 endPosition;
+    float swipeDistanceThreshold = 100.0f;
+    float swipeThreshold = 100.0f;
 
     void Start()
     {
@@ -69,14 +74,59 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) && !isMoving && !StoreUp)
         {
+            Time.timeScale = 1;
             direction = new Vector2( speed * inverse, speed);
             isMoving = true;
             controlsPanel.SetActive(false);
             engineSound.Play();
-            Time.timeScale = 1;
-
         }
-        else if (Input.GetMouseButtonDown(0) && isMoving && isLookingLeft && Time.timeScale > 0 && !Lock)
+
+        CheckSlide();
+
+        body.velocity = direction;
+    }
+
+    void CheckSlide()
+    {
+        if (Input.touchCount == 1)
+        {
+            var touch = Input.touches[0];
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    startPosition = touch.position;
+                    break;
+                case TouchPhase.Ended:
+                    endPosition = touch.position;
+                    AnalyzeGesture(startPosition, endPosition);
+                    break;
+            }
+        }
+        
+    }
+    
+    void AnalyzeGesture(Vector2 start, Vector2 end)
+    {
+        // Distance
+        if(Vector2.Distance(start, end) > swipeDistanceThreshold)
+        {
+            var leftToRight = start.x < end.x;
+            var rightToLeft = start.x > end.x;
+            
+            if(leftToRight)
+            {
+                SwipeLeft();
+            }
+            else if (rightToLeft)
+            {
+                SwipeRight();
+            }
+        }
+    }
+
+    void SwipeLeft()
+    {
+        if (isMoving && isLookingLeft && Time.timeScale > 0 && !Lock)
         {
             direction = new Vector2(body.velocity.x * inverse, body.velocity.y);
             transform.Rotate (Vector3.forward * -90);
@@ -84,7 +134,11 @@ public class PlayerController : MonoBehaviour
             tireSound.Play();
             vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.3f;
         }
-        else if (Input.GetMouseButtonDown(0) && isMoving && !isLookingLeft && Time.timeScale > 0 && !Lock)
+    }
+
+    void SwipeRight()
+    {
+        if (isMoving && !isLookingLeft && Time.timeScale > 0 && !Lock)
         {
             direction = new Vector2(body.velocity.x * inverse, body.velocity.y);
             transform.Rotate (Vector3.forward * 90);
@@ -92,10 +146,8 @@ public class PlayerController : MonoBehaviour
             tireSound.Play();
             vcam.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenX = 0.7f;
         }
-        
-
-        body.velocity = direction;
     }
+    
     public void IsSkid()
     {
         if (!shield)
