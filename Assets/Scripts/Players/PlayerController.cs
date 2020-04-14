@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     Vector2 direction;
     [SerializeField] float speed;
     [SerializeField] float lowSpeed;
+    [SerializeField] float breakHit;
     [SerializeField] float normalSpeed;
     [SerializeField] float nitroSpeed;
 
@@ -129,6 +130,40 @@ public class PlayerController : MonoBehaviour
         }
         Lock = false;
     }
+
+    public void BreakHit()
+    {
+        if (!shield)
+        {
+            Lock = true;
+            if (!isLookingLeft)
+            {
+                direction = new Vector2(breakHit, breakHit);
+            }
+            if (isLookingLeft)
+            {
+                direction = new Vector2(breakHit * inverse, breakHit);
+            }
+            tireSound.Play();
+            StartCoroutine(BreakCooldown());
+        }
+    }
+    IEnumerator BreakCooldown()
+    {
+        yield return new WaitForSeconds(Cooldown);
+        if (!isLookingLeft)
+        {
+            direction = new Vector2(speed, speed);
+            transform.rotation = Quaternion.Euler(0, 0, -45);
+        }
+        if (isLookingLeft)
+        {
+            direction = new Vector2(speed * inverse, speed);
+            transform.rotation = Quaternion.Euler(0, 0, 45);
+        }
+        Lock = false;
+    }
+
     public void shieldUp()
     {
         if (!shield)

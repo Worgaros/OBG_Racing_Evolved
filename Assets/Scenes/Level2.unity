@@ -1160,6 +1160,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oil (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8260897504332596197, guid: cfca27330dbc9574f8edae461feee9fa,
+        type: 3}
+      propertyPath: oil
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8260897504332596198, guid: cfca27330dbc9574f8edae461feee9fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1325,6 +1330,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Oil
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260897504332596197, guid: cfca27330dbc9574f8edae461feee9fa,
+        type: 3}
+      propertyPath: oil
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8260897504332596198, guid: cfca27330dbc9574f8edae461feee9fa,
         type: 3}
@@ -3121,6 +3131,11 @@ PrefabInstance:
       propertyPath: controlsPanel
       value: 
       objectReference: {fileID: 477184826}
+    - target: {fileID: 7217707028120119128, guid: 31dfe8afe43dde0458a3a3af67102994,
+        type: 3}
+      propertyPath: breakHit
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31dfe8afe43dde0458a3a3af67102994, type: 3}
 --- !u!1 &1387041152 stripped
@@ -3182,6 +3197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Oil (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260897504332596197, guid: cfca27330dbc9574f8edae461feee9fa,
+        type: 3}
+      propertyPath: oil
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8260897504332596198, guid: cfca27330dbc9574f8edae461feee9fa,
         type: 3}

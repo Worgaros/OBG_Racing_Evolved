@@ -10,7 +10,7 @@ public class Skid : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") 
+        if (collision.gameObject.tag == "Player" & oil) 
         {
             collision.GetComponent<PlayerController>().IsSkid();
             Destroy(gameObject);
@@ -18,6 +18,8 @@ public class Skid : MonoBehaviour
         if (collision.gameObject.tag == "Player" & barrel)
         {
             collision.GetComponent<PlayerHealth>().Hiting();
+            collision.GetComponent<PlayerController>().BreakHit();
+            Destroy(gameObject);
         }
     }
     public void ShieldBroke()
