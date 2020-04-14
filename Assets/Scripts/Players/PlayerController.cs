@@ -69,15 +69,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, 0, speedRot * Time.deltaTime));
         }
-
-        if (isMoving)
-        {
-            GetComponent<SpriteRenderer>().color = Color.white;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().color = Color.black;
-        }
     }
 
     void PlayerMovements()
