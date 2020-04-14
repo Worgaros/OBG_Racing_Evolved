@@ -171,7 +171,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 2
+  maxHealth: 4
   armoredUp: 0
+  heart: []
+  fullHeart: {fileID: 0}
+  emptyHealth: {fileID: 0}
 --- !u!1 &3985523309759152006
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,6 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: 0
+  Broke: 0
 --- !u!70 &6710509444047707507
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
