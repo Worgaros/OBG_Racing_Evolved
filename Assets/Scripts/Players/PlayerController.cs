@@ -46,6 +46,9 @@ public class PlayerController : MonoBehaviour
     Vector2 endPosition;
     float swipeDistanceThreshold = 100.0f;
     float swipeThreshold = 100.0f;
+    float movementSizeToChangeWay = 0.3f;
+
+    float timer = 0.2f;
 
     void Start()
     {
@@ -66,12 +69,19 @@ public class PlayerController : MonoBehaviour
         {
             transform.Rotate(new Vector3(0, 0, speedRot * Time.deltaTime));
         }
+
+        if (isMoving)
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.black;
+        }
     }
 
     void PlayerMovements()
     {
-        
-        
         if (Input.GetMouseButtonDown(0) && !isMoving && !StoreUp)
         {
             Time.timeScale = 1;
@@ -81,9 +91,33 @@ public class PlayerController : MonoBehaviour
             engineSound.Play();
         }
 
-        CheckSlide();
-
+        if (!isMoving)
+            return;
+        
         body.velocity = direction;
+
+        timer -= Time.deltaTime;
+        if (timer > 0)
+            return;
+        
+        CheckSlide();
+        CheckClic();
+
+        
+    }
+
+    void CheckClic()
+    {
+        foreach (Touch touch in Input.touches) {
+            if (touch.phase == TouchPhase.Ended && touch.position.x < Screen.width/2 && isMoving && Time.timeScale > 0 && !Lock)
+            {
+                transform.position -= transform.right * movementSizeToChangeWay;
+            }
+            else if (touch.phase == TouchPhase.Ended && touch.position.x > Screen.width/2 && isMoving && Time.timeScale > 0 && !Lock)
+            {
+                transform.position += transform.right * movementSizeToChangeWay;
+            } 
+        }
     }
 
     void CheckSlide()
@@ -107,7 +141,6 @@ public class PlayerController : MonoBehaviour
     
     void AnalyzeGesture(Vector2 start, Vector2 end)
     {
-        // Distance
         if(Vector2.Distance(start, end) > swipeDistanceThreshold)
         {
             var leftToRight = start.x < end.x;
