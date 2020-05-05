@@ -6,6 +6,7 @@ public class Skid : MonoBehaviour
 {
     [SerializeField] bool oil;
     [SerializeField] bool barrel;
+    [SerializeField] GameObject explosion;
 
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,6 +18,7 @@ public class Skid : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player" & barrel)
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             collision.GetComponent<PlayerHealth>().Hiting();
             collision.GetComponent<PlayerController>().BreakHit();
             Destroy(gameObject);

@@ -21,9 +21,6 @@ public class ObjectCollector : MonoBehaviour
     float minPitch = 0.3f;
     float maxPitch = 1.3f;
 
-    //float maxTime = 3.0f;
-    //float time = 0;
-    
     int maxIndexLevels = 7;
 
     void Start()
@@ -31,11 +28,6 @@ public class ObjectCollector : MonoBehaviour
         playerBody = player.GetComponent<Rigidbody2D>();
         coinsave = FindObjectOfType<CoinsSaver>();
     }
-
-    /*private void Update()
-    {
-        time -= Time.deltaTime;
-    }*/
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -50,12 +42,10 @@ public class ObjectCollector : MonoBehaviour
         else if (gameObject.CompareTag("Cup"))
         {
             Destroy(gameObject);
-            Time.timeScale = 0;
+            Time.timeScale = 0.001f;
             victoryPanel.SetActive(true);
 
-            //time = maxTime;
-
-            if (SceneManager.GetActiveScene().buildIndex != maxIndexLevels /*&& time <= 0*/)
+            if (SceneManager.GetActiveScene().buildIndex != maxIndexLevels)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }

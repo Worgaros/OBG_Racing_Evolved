@@ -122,3 +122,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oil: 0
   barrel: 1
+  explosion: {fileID: 9167252343945627182, guid: cd5865e989cf24542bad93e06edeb0e6,
+    type: 3}

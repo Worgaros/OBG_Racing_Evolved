@@ -645,11 +645,11 @@ MonoBehaviour:
 
 
 
-
-
     Game Art:
 
+    Kenney - OpenGameArt
 
+    Warspawn - OpenGameArt
 
 
 
@@ -729,12 +729,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -917.39014, w: 0}
   m_textInfo:
     textComponent: {fileID: 463672200}
-    characterCount: 123
+    characterCount: 163
     spriteCount: 0
-    spaceCount: 30
-    wordCount: 18
+    spaceCount: 32
+    wordCount: 24
     linkCount: 0
-    lineCount: 20
+    lineCount: 18
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
