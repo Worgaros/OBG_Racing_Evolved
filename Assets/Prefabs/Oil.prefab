@@ -120,5 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d5cd285ef29834aa415b8d086e628b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oil: 0
+  oil: 1
   barrel: 0

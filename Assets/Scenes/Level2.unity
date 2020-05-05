@@ -3499,7 +3499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5200ea7dc04022a4793224f3fa28a99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 147551070186380517, guid: 31dfe8afe43dde0458a3a3af67102994, type: 3}
+  player: {fileID: 1387041152}
   victoryPanel: {fileID: 1812169000}
   coinSound: {fileID: 188200315}
 --- !u!60 &1598843752

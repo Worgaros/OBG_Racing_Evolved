@@ -16,7 +16,7 @@ public class ObjectCollector : MonoBehaviour
 
     CoinsSaver coinsave;
     
-    int maxIndexLevels = 4;
+    int maxIndexLevels = 7;
 
     void Start()
     {
