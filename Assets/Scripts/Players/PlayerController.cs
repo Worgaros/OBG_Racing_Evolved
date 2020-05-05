@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
     bool isSkid = false;
     bool Lock = false;
+
+    bool isPaused = false;
+
     [SerializeField] float speedRot;
     [SerializeField] float Cooldown;
 
@@ -262,5 +265,24 @@ public class PlayerController : MonoBehaviour
     public void storeDown()
     {
         StoreUp = false;
+    }
+
+    public void pause()
+    {
+        if (!isPaused)
+        {
+            Time.timeScale = 0;
+            isPaused = true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            isPaused = false;
+            if (!StoreUp) 
+            {
+                engineSound.Play();
+            }
+        }
+
     }
 }
