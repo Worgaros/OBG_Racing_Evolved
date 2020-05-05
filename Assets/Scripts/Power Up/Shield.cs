@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     [SerializeField] bool shield;
-    [SerializeField] bool Broke;
+    [SerializeField] bool broke;
     
     CoinsSaver coinsave;
 
@@ -13,7 +13,7 @@ public class Shield : MonoBehaviour
 
     void Start()
     {
-        Broke = false;
+        broke = false;
         coinsave = FindObjectOfType<CoinsSaver>();
         shield = false;
         ShieldOn();
@@ -31,7 +31,7 @@ public class Shield : MonoBehaviour
             shield = true;
             GetComponentInParent<PlayerController>().shieldUp();
         }
-        if (Broke)
+        if (broke)
         {
             gameObject.SetActive(false);
             shield = false;
@@ -46,7 +46,7 @@ public class Shield : MonoBehaviour
     {
         if (collision.gameObject.tag == "Oil")
         {
-            Broke = true;
+            broke = true;
             collision.GetComponent<Skid>().ShieldBroke();
             ShieldOn();
         }

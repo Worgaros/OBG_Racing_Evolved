@@ -4,9 +4,9 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Audio", fileName = "Clip")]
 public class SO_Clip : ScriptableObject{
-    [SerializeField] AudioClip clip_;
-    [SerializeField] float volume_ = 1;
+    [SerializeField] AudioClip clip;
+    [SerializeField] float volume = 1;
 
-    public AudioClip Clip => clip_;
-    public float Volume => volume_;
+    public AudioClip Clip => clip;
+    public float Volume => volume;
 }    
