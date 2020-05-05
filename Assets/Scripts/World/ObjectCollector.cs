@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class ObjectCollector : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class ObjectCollector : MonoBehaviour
     [SerializeField] AudioSource coinSound;
 
     CoinsSaver coinsave;
+
+    float minPitch = 0.3f;
+    float maxPitch = 1.3f;
 
     //float maxTime = 3.0f;
     //float time = 0;
@@ -38,6 +42,7 @@ public class ObjectCollector : MonoBehaviour
         if (gameObject.CompareTag("Coin"))
         {
             coinsave.AddCoins();
+            coinSound.pitch = Random.Range(minPitch, maxPitch);
             coinSound.Play();
             Destroy(gameObject);
         }
