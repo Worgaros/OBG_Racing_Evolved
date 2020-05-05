@@ -124,8 +124,8 @@ MonoBehaviour:
   speed: 1.4
   lowSpeed: 1
   breakHit: 0
-  normalSpeed: 2
-  nitroSpeed: 3
+  normalSpeed: 1.4
+  nitroSpeed: 2
   speedRot: 1000
   Cooldown: 1
   controlsPanel: {fileID: 0}
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93834a2fd4ba0d741bc7312ed64081e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 2
+  Health: 3
   maxHealth: 4
   armoredUp: 0
   heart: []
